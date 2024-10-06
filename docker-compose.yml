@@ -12,3 +12,18 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
       - BROWSER=none
+
+  grafana:
+    image: grafana/grafana-enterprise
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - '3011:3011'
+    volumes:
+      - grafana-data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=pass
+
+volumes:
+  influxdb-data:
+  grafana-data:

@@ -1,42 +1,77 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+h3 {
+  margin: 0;
+}
+
+.view-area {
+  width: 100vw;
+  height: 100vh; /* 画面全体の高さを確保 */
+  display: flex;
+  align-items: center; /* 上下方向で中央に配置 */
+  justify-content: center; /* 全体を中央に配置 */
+  gap: 5px; /* コンテンツ間のスペースを追加 */
+}
+
+.info {
+  width: 100%;
+  max-width: 750px;
+  height: 500px; /* 全体の高さを明確に指定します */
+  display: flex;
+  flex-direction: column; /* 縦方向に子要素を配置 */
+  gap: 10px; /* マップと情報パネルの間にスペースを追加 */
+}
+
+.map {
+  width: 100%;
+  height: 315px; /* 固定の高さを指定 */
+  background: green; /* 仮の背景色を指定 */
+}
+
+.youtube {
+  display: flex;
+  flex-direction: column; /* 縦方向に要素を配置 */
+  align-items: center; /* 中央揃えに */
+}
+
+.info-font {
+  font-size: 16px;
+  font-weight: bold;
+  gap: 5px;
+}
+
+.info-panel {
+  display: flex; /* 横並びに表示するためにFlexboxを使用 */
+  align-items: center; /* 各要素を中央に整列 */
+  justify-content: space-between; /* 各要素の間隔を均等に保つ */
+  width: 100%;
+  height: 320px; /* 固定の高さを指定 */
+  padding: 10px;
+  box-sizing: border-box; /* パディングを含めたサイズを確保する */
+}
+
+.info-panel > div {
+  flex: 1; /* 各要素を均等に広げる */
+  padding: 10px;
   text-align: center;
+  position: relative;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.info-panel > div:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  right: 0;
+  width: 1px;
+  height: 80%;
+  background-color: #ccc; /* 仕切り線の色 */
 }
